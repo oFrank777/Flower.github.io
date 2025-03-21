@@ -1,0 +1,317 @@
+body {
+    margin: 0;
+    font-family: 'Inclusive Sans', sans-serif;
+    background: linear-gradient(135deg, #4b0082, #8a2be2, #ff69b4);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estrellas de fondo */
+.estrellas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.estrellas::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    animation: parpadeo 5s infinite;
+}
+
+@keyframes parpadeo {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+h1 {
+    text-align: center;
+    font-size: 80px;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.titulo-animado {
+    animation: aparecer 1.5s ease-out, flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.Con-2 {
+    display: none;
+    margin-top: 50px;
+}
+
+canvas {
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.3));
+}
+
+.canvas-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.Contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 20px;
+}
+
+.Con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    gap: 40px;
+}
+
+.Texto {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    transform: translateY(30px);
+    animation: subir 1s forwards;
+}
+
+@keyframes subir {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.texto-aparicion {
+    opacity: 0;
+    animation: aparecer 2s ease-out 0.5s forwards;
+}
+
+@keyframes aparecer {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.Texto h2 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+.mensaje-adicional {
+    font-size: 22px;
+    color: #fff;
+    margin-top: 10px;
+    opacity: 0;
+    animation: aparecer 1s ease-out 1.5s forwards;
+}
+
+.Button {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #ffff00, #ffd700);
+    color: #333;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.Button:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+.Button:active {
+    transform: scale(0.98);
+}
+
+.efecto-brillo {
+    position: relative;
+}
+
+.efecto-brillo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: brillo 3s infinite;
+    z-index: -1;
+}
+
+@keyframes brillo {
+    0% { transform: rotate(45deg) translateX(-100%); }
+    100% { transform: rotate(45deg) translateX(100%); }
+}
+
+.pulse-button {
+    animation: pulsar 2s infinite;
+}
+
+@keyframes pulsar {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+.Contenedor-Binicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Con-Emergente {
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+}
+
+.cua {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 3px solid gold;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: aparecer-ventana 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+}
+
+#res {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+@keyframes aparecer-ventana {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -70%) scale(0.8);
+    }
+    70% {
+        transform: translate(-50%, -45%) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Corazones flotantes */
+.corazon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff69b4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    opacity: 0.8;
+    z-index: 100;
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 50px;
+    }
+    
+    .Texto h2 {
+        font-size: 36px;
+    }
+    
+    .canvas-container {
+        width: 95%;
+        height: auto;
+    }
+    
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 36px;
+    }
+    
+    .Button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+    
+    .Con {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .Texto h2 {
+        font-size: 28px;
+    }
+    
+    .mensaje-adicional {
+        font-size: 18px;
+    }
+    
+    .cua {
+        width: 80%;
+        padding: 20px;
+    }
+}
